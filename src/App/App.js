@@ -1,5 +1,4 @@
 import ThemeDecorator from '@enact/sandstone/ThemeDecorator';
-
 import { useState } from 'react';
 import { Panels } from '@enact/sandstone/Panels';
 import data from "../Data/MOCK_DATA.json";
@@ -14,11 +13,11 @@ const App = (props) => {
 
 	const handleImageClick = (index) => {
 		setSelectedImageIndex(index);
-		setPanelIndex(1); // Switch to the SecondaryPanel
+		setPanelIndex(1);
 	};
 
 	const handleBack = () => {
-		setPanelIndex(0); // Switch back to the MainPanel
+		setPanelIndex(0);
 		setSelectedImageIndex(null);
 	};
 
@@ -36,7 +35,6 @@ const App = (props) => {
 		<Panels {...props} index={panelIndex} onBack={handleBack} className={css.body}>
 			<MainPanel onImageClick={handleImageClick} />
 			<SecondaryPanel
-				// The '?' prevents an error if selectedImageIndex is null
 				image={data[selectedImageIndex]?.image}
 				onNext={handleNext}
 				onPrev={handlePrev}
