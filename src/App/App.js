@@ -35,12 +35,13 @@ const App = (props) => {
 		<Panels {...props} index={panelIndex} onBack={handleBack} className={css.body}>
 			<MainPanel onImageClick={handleImageClick} />
 			<SecondaryPanel
-				image={data[selectedImageIndex]?.image}
+				image={data[selectedImageIndex]?.full}
 				onNext={handleNext}
 				onPrev={handlePrev}
+				setPanelIndex={setPanelIndex}
 			/>
 		</Panels>
 	);
 };
 
-export default App;
+export default ThemeDecorator(App);

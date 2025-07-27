@@ -9,18 +9,14 @@ import css from './MainPanel.module.less';
 const MainPanel = kind({
 	name: 'MainPanel',
 
-	propTypes: {
-		onImageClick: 'function' // Expect a function to be passed in
-	},
-
 	render: ({ onImageClick, ...rest }) => {
 		const imageItem = ({ index, ...itemRest }) => {
-			const { image } = data[index];
+			const { thumbnail } = data[index];
 
 			return (
 				<ImageItem
 					{...itemRest}
-					src={image}
+					src={thumbnail}
 					className={css.rounded}
 					style={{ padding: '.25rem' }}
 					// Call the passed-in function with the item's index

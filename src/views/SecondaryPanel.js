@@ -7,30 +7,28 @@ import css from './SecondaryPanel.module.less';
 const SecondaryPanel = kind({
     name: 'SecondaryPanel',
 
-    propTypes: {
-        image: 'string',
-        onNext: 'function',
-        onPrev: 'function'
-    },
+    render: ({ image, onNext, onPrev, setPanelIndex, ...rest }) => {
 
-    render: ({ image, onNext, onPrev, ...rest }) => {
+        function handleClick() {
+            setPanelIndex(0);
+        }
 
         return (
             <Panel {...rest} className={css.secondaryPanel}>
-                <Header noCloseButton title="Image Preview" type="compact" className={css.header} />
+                <Button icon='arrowhookleft' size='small' onClick={handleClick} style={{ zIndex: "15px" }} />
                 <div className={css.content}>
                     <Button
                         className={css.navButton}
                         icon="arrowlargeleft"
                         onClick={onPrev}
-                        size="large"
+                        size="small"
                     />
                     <Image className={css.image} src={image} />
                     <Button
                         className={css.navButton}
                         icon="arrowlargeright"
                         onClick={onNext}
-                        size="large"
+                        size="small"
                     />
                 </div>
             </Panel>
